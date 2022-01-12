@@ -6,7 +6,8 @@ Compile and see `GenerateWarning.cs` on line 16.
 
 > warning CA1508: 'customer.LastName.Length == 0' is always 'true'. Remove or refactor the condition(s) to avoid dead code.
 
-See [issue in Developer Community](https://developercommunity.visualstudio.com/t/CA1508-reported-incorrectly/1618815).
+See [issue in Developer Community](https://developercommunity.visualstudio.com/t/CA1508-reported-incorrectly/1618815),
+filed also under [roslyn-analyzers issues](https://github.com/dotnet/roslyn-analyzers/issues/5789).
 
 ## Tested with SDK Version 6.0.101
 
