@@ -9,36 +9,47 @@ Compile and see `GenerateWarning.cs` on line 16.
 See [issue in Developer Community](https://developercommunity.visualstudio.com/t/CA1508-reported-incorrectly/1618815),
 filed also under [roslyn-analyzers issues](https://github.com/dotnet/roslyn-analyzers/issues/5789).
 
-## Tested with SDK Version 6.0.101
+## Tested with 6.0.200-preview.22055.15
 
 ```cmd
+dotnet clean
 dotnet build
 ```
 
-produces this output:
+Running `dotnet build` (Jan 23 2022) produces this output:
 
 ```log
-Welcome to .NET 6.0!
----------------------
-SDK Version: 6.0.101
+Microsoft (R) Build Engine version 17.1.0-preview-21610-01+96a618ca5 for .NET
+Copyright (C) Microsoft Corporation. All rights reserved.
 
-Telemetry
----------
-The .NET tools collect usage data in order to help us improve your experience. It is collected by Microsoft and shared with the community. You can opt-out of telemetry by setting the DOTNET_CLI_TELEMETRY_OPTOUT environment variable to '1' or 'true' using your favorite shell.
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  You are using a preview version of .NET. See: https://aka.ms/dotnet-core-preview
+  You are using a preview version of .NET. See: https://aka.ms/dotnet-core-preview
+  ClassLibrary -> S:\git\issue-vs2022-ca1508\ClassLibrary\bin\Debug\net6.0\ClassLibrary.dll
+S:\git\issue-vs2022-ca1508\Program\GenerateWarning.cs(16,14): warning CA1508: 'customer.LastName.Length == 0' is always 'true'. Remove or refactor the condition(s) to avoid dead code. [S:\git\issue-vs2022-ca1508\Program\Program.csproj]
+  Program -> S:\git\issue-vs2022-ca1508\Program\bin\Debug\net6.0\Program.dll
 
-Read more about .NET CLI Tools telemetry: https://aka.ms/dotnet-cli-telemetry
+Build succeeded.
 
-----------------
-Installed an ASP.NET Core HTTPS development certificate.
-To trust the certificate run 'dotnet dev-certs https --trust' (Windows and macOS only).
-Learn about HTTPS: https://aka.ms/dotnet-https
-----------------
-Write your first app: https://aka.ms/dotnet-hello-world
-Find out what's new: https://aka.ms/dotnet-whats-new
-Explore documentation: https://aka.ms/dotnet-docs
-Report issues and find source on GitHub: https://github.com/dotnet/core
-Use 'dotnet --help' to see available commands or visit: https://aka.ms/dotnet-cli
---------------------------------------------------------------------------------------
+S:\git\issue-vs2022-ca1508\Program\GenerateWarning.cs(16,14): warning CA1508: 'customer.LastName.Length == 0' is always 'true'. Remove or refactor the condition(s) to avoid dead code. [S:\git\issue-vs2022-ca1508\Program\Program.csproj]
+    1 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.25
+```
+
+
+## Tested with SDK Version 6.0.101
+
+```cmd
+dotnet clean
+dotnet build
+```
+
+Running `dotnet build` (Jan 12 2022) produces this output:
+
+```log
 Microsoft (R) Build Engine version 17.0.0+c9eb9dd64 for .NET
 Copyright (C) Microsoft Corporation. All rights reserved.
 
@@ -46,15 +57,13 @@ Copyright (C) Microsoft Corporation. All rights reserved.
   Restored S:\git\tmp\issue-vs2022-ca1508\ClassLibrary\ClassLibrary.csproj (in 218 ms).
   Restored S:\git\tmp\issue-vs2022-ca1508\Program\Program.csproj (in 220 ms).
   ClassLibrary -> S:\git\tmp\issue-vs2022-ca1508\ClassLibrary\bin\Debug\net6.0\ClassLibrary.dll
-CSC : warning CA1014: Mark assemblies with CLSCompliant [S:\git\tmp\issue-vs2022-ca1508\Program\Program.csproj]
 S:\git\tmp\issue-vs2022-ca1508\Program\GenerateWarning.cs(16,14): warning CA1508: 'customer.LastName.Length == 0' is always 'true'. Remove or refactor the condition(s) to avoid dead code. [S:\git\tmp\issue-vs2022-ca1508\Program\Program.csproj]
   Program -> S:\git\tmp\issue-vs2022-ca1508\Program\bin\Debug\net6.0\Program.dll
 
 Build succeeded.
 
-CSC : warning CA1014: Mark assemblies with CLSCompliant [S:\git\tmp\issue-vs2022-ca1508\Program\Program.csproj]
 S:\git\tmp\issue-vs2022-ca1508\Program\GenerateWarning.cs(16,14): warning CA1508: 'customer.LastName.Length == 0' is always 'true'. Remove or refactor the condition(s) to avoid dead code. [S:\git\tmp\issue-vs2022-ca1508\Program\Program.csproj]
-    2 Warning(s)
+    1 Warning(s)
     0 Error(s)
 
 Time Elapsed 00:00:06.08
