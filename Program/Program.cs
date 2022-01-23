@@ -1,5 +1,7 @@
-﻿//	Copyright © 2021, EPSITEC SA, CH-1400 Yverdon-les-Bains, Switzerland
+﻿//	Copyright © 2021-2022, EPSITEC SA, CH-1400 Yverdon-les-Bains, Switzerland
 //	Author: Pierre ARNAUD, Maintainer: Pierre ARNAUD
+
+[assembly:CLSCompliant(true)]
 
 namespace Bug;
 
